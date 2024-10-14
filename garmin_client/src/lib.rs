@@ -128,6 +128,7 @@ impl GarminClient {
         let url = self.build_auth_url(vec!["sso", "signin"]);
         let mut headers = HeaderMap::new(); 
         headers.insert("referer", self.last_sso_resp_url.as_str().parse().unwrap());
+        headers.insert("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148".parse().unwrap());
 
         let form = HashMap::from([
             ("username", String::from(username)),
